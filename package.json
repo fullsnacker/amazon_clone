@@ -20,6 +20,9 @@
     "react-scripts": "3.4.3",
     "react-toastify": "^6.0.8"
   },
+    "engines": {
+    "node": "16.15.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
