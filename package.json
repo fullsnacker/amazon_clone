@@ -11,6 +11,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.20.0",
+    "concurrently": "^7.3.0",
     "firebase": "^7.19.1",
     "react": "^16.13.1",
     "react-currency-format": "^1.0.0",
@@ -20,14 +21,15 @@
     "react-scripts": "3.4.3",
     "react-toastify": "^6.0.8"
   },
-    "engines": {
+  "engines": {
     "node": "16.15.0"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "install-client": "npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
   },
   "eslintConfig": {
     "extends": "react-app"
